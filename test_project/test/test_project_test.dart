@@ -1,4 +1,7 @@
+multipyNumber(double num1 , double num2) {
+  print(num1 * num2);
+}
+
 void main() {
-  print('Hello world this is me Dart');
-  print('I will devlop flutter using dart');
+ multipyNumber(2,3);
 }
