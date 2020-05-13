@@ -1,7 +1,12 @@
- double multipyNumber(double num1 , double num2) {
-  return (num1 * num2);
+class Car {
+  String name = 'Toyota';
+  int speed = 120;
 }
-
 void main() {
- print(multipyNumber(2,10));
+ var c1 = Car();
+ print(c1.name);
+ var c2 = Car();
+ c2.name='lancer';
+ print(c2.name);
+
 }
