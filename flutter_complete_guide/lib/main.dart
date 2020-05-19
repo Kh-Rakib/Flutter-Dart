@@ -13,6 +13,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   //MyApp is a custom made class that inherit StatelessWidget
+  void answerQuestion() {
+    print('Answer Chosen!!');
+  }
   @override
   Widget build(BuildContext context) {
     //Widget is the type here build will return something which is a Widget
@@ -30,9 +33,9 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(children: [
           Text('This is the question !!'),
-          RaisedButton(child: Text('Answer 1'), onPressed: null),
-          RaisedButton(child: Text('Answer 2'), onPressed: null), 
-          RaisedButton(child: Text('Answer 3'), onPressed: null),  
+          RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+          RaisedButton(child: Text('Answer 2'), onPressed: answerQuestion), 
+          RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),  
         ],),
         //it's the app body
       ),
