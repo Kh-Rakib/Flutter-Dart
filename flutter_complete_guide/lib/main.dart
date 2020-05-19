@@ -13,10 +13,11 @@ void main() {
 
 class MyApp extends StatelessWidget {
   //MyApp is a custom made class that inherit StatelessWidget
-
+  @override
   Widget build(BuildContext context) {
     //Widget is the type here build will return something which is a Widget
     //Context here is an Argument
+    var questions = ['What\'s your favourite color ?', 'What\'s Your Favourute Animal?',];
     return MaterialApp(
       home: Scaffold(
         //home is a argument here
@@ -27,7 +28,12 @@ class MyApp extends StatelessWidget {
           title: Text('My First App'),
           //title is a argument takes Text to show
         ),
-        body: Text('This is my deault Text'),
+        body: Column(children: [
+          Text('This is the question !!'),
+          RaisedButton(child: Text('Answer 1'), onPressed: null),
+          RaisedButton(child: Text('Answer 2'), onPressed: null), 
+          RaisedButton(child: Text('Answer 3'), onPressed: null),  
+        ],),
         //it's the app body
       ),
     );
