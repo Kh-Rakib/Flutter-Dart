@@ -13,30 +13,40 @@ void main() {
 
 class MyApp extends StatelessWidget {
   //MyApp is a custom made class that inherit StatelessWidget
+  var questionIndex = 0;
   void answerQuestion() {
-    print('Answer Chosen!!');
-  }
+    questionIndex = questionIndex+1;
+     print(questionIndex);
+  } //This is a function which will execute whn button tapped.
+
   @override
   Widget build(BuildContext context) {
     //Widget is the type here build will return something which is a Widget
     //Context here is an Argument
-    var questions = ['What\'s your favourite color ?', 'What\'s Your Favourute Animal?',];
+    var questions = [
+      'What\'s your favourite color ?',
+      'What\'s Your Favourute Animal?',
+    ];
     return MaterialApp(
       home: Scaffold(
         //home is a argument here
         //scaffold is a widget for base page design
         appBar: AppBar(
           //appBar is an argument
-          //AppBar is a widget 
+          //AppBar is a widget
           title: Text('My First App'),
           //title is a argument takes Text to show
         ),
-        body: Column(children: [
-          Text('This is the question !!'),
-          RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
-          RaisedButton(child: Text('Answer 2'), onPressed: answerQuestion), 
-          RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),  
-        ],),
+        body: Column(
+          children: [
+            Text(
+              questions[questionIndex],
+            ),
+            RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+            RaisedButton(child: Text('Answer 2'), onPressed: answerQuestion),
+            RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),
+          ],
+        ), //column here is a widget
         //it's the app body
       ),
     );
