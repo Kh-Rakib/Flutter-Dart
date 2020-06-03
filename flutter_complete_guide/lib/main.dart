@@ -1,57 +1,27 @@
-import 'package:flutter/material.dart';
-//import some files or getting access from files of SDK
+import 'Package:flutter/material.dart';
+//we are importing built in package from flutter
+//material.dart is a package of built in theme/buttons
 
 void main() {
-//This is the main function when app starts this will
-//Get called first or Execute first
-
+  //main is a special kind of function when the app starts it first execute main function
   runApp(MyApp());
-//runApp is a function provided by material.dart file
-//This function will help to render
-//Onto the screen by calling constructor
+  //runApp is function which provided by material.dart
 }
 
 class MyApp extends StatelessWidget {
-  //MyApp is a custom made class that inherit StatelessWidget
-  var questionIndex = 0;
-  void answerQuestion() {
-    questionIndex = questionIndex+1;
-     print(questionIndex);
-  } //This is a function which will execute whn button tapped.
-
   @override
+  //We make a class MyApp which inherit another class which is provided by material.dart
   Widget build(BuildContext context) {
-    //Widget is the type here build will return something which is a Widget
-    //Context here is an Argument
-    var questions = [
-      'What\'s your favourite color ?',
-      'What\'s Your Favourute Animal?',
-    ];
+    //build is a method here with type:Widget and context is a argument ,This argument will call by flutter
     return MaterialApp(
       home: Scaffold(
-        //home is a argument here
-        //scaffold is a widget for base page design
         appBar: AppBar(
-          //appBar is an argument
-          //AppBar is a widget
           title: Text('My First App'),
-          //title is a argument takes Text to show
         ),
-        body: Column(
-          children: [
-            Text(
-              questions[questionIndex],
-            ),
-            RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
-            RaisedButton(child: Text('Answer 2'), onPressed: answerQuestion),
-            RaisedButton(child: Text('Answer 3'), onPressed: answerQuestion),
-          ],
-        ), //column here is a widget
-        //it's the app body
+        body: Text('Hello World\'s'),
       ),
     );
-    //MaterialApp is a class
-    //Home is a Argument
-    //Text here is a Object provided by maaterial.dart
+    //buuild method should return something
+    //MaterialApp is a class which takes a named argument
   }
 }
