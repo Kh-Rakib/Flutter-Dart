@@ -1,0 +1,40 @@
+[1mdiff --git a/flutter_complete_guide/lib/main.dart b/flutter_complete_guide/lib/main.dart[m
+[1mindex fff29ca..5c18f02 100644[m
+[1m--- a/flutter_complete_guide/lib/main.dart[m
+[1m+++ b/flutter_complete_guide/lib/main.dart[m
+[36m@@ -16,15 +16,15 @@[m [mclass MyApp extends StatefulWidget {[m
+   }[m
+ }[m
+ class MyAppState extends State<MyApp> {[m
+[31m-  var questionIndex =0 ;[m
+[32m+[m[32m  var _questionIndex =0 ;[m
+ [m
+[31m-  void amswerQuestion() {[m
+[32m+[m[32m  void _amswerQuestion() {[m
+     setState((){[m
+[31m-    questionIndex = questionIndex + 1;[m
+[32m+[m[32m    _questionIndex = _questionIndex + 1;[m
+ [m
+     }); [m
+  [m
+[31m-    print(questionIndex);[m
+[32m+[m[32m    print(_questionIndex);[m
+   }[m
+   @override[m
+   //We make a class MyApp which inherit another class which is provided by material.dart[m
+[36m@@ -40,12 +40,12 @@[m [mclass MyAppState extends State<MyApp> {[m
+         ),[m
+         body: Column([m
+           children: <Widget>[[m
+[31m-            Text(question[questionIndex]),[m
+[31m-            RaisedButton(child: Text('Answer 1'), onPressed: amswerQuestion), //BUTTON[m
+[32m+[m[32m            Text(question[_questionIndex]),[m
+[32m+[m[32m            RaisedButton(child: Text('Answer 1'), onPressed: _amswerQuestion), //BUTTON[m
+             Text('Question 2 '),[m
+             RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen'),), //BUTTON //Here ()= is an anonymous function[m
+              Text('Question 3 '),[m
+[31m-            RaisedButton(child: Text('Answer 3'), onPressed: amswerQuestion), //BUTTON[m
+[32m+[m[32m            RaisedButton(child: Text('Answer 3'), onPressed: _amswerQuestion), //BUTTON[m
+           ],[m
+         ),[m
+       ),[m

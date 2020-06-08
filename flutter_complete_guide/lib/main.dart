@@ -16,15 +16,15 @@ class MyApp extends StatefulWidget {
   }
 }
 class MyAppState extends State<MyApp> {
-  var questionIndex =0 ;
+  var _questionIndex =0 ;
 
-  void amswerQuestion() {
+  void _amswerQuestion() {
     setState((){
-    questionIndex = questionIndex + 1;
+    _questionIndex = _questionIndex + 1;
 
     }); 
  
-    print(questionIndex);
+    print(_questionIndex);
   }
   @override
   //We make a class MyApp which inherit another class which is provided by material.dart
@@ -40,12 +40,12 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: <Widget>[
-            Text(question[questionIndex]),
-            RaisedButton(child: Text('Answer 1'), onPressed: amswerQuestion), //BUTTON
+            Text(question[_questionIndex]),
+            RaisedButton(child: Text('Answer 1'), onPressed: _amswerQuestion), //BUTTON
             Text('Question 2 '),
             RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen'),), //BUTTON //Here ()= is an anonymous function
              Text('Question 3 '),
-            RaisedButton(child: Text('Answer 3'), onPressed: amswerQuestion), //BUTTON
+            RaisedButton(child: Text('Answer 3'), onPressed: _amswerQuestion), //BUTTON
           ],
         ),
       ),
