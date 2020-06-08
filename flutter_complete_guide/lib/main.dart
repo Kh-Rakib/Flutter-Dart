@@ -1,4 +1,5 @@
 import 'Package:flutter/material.dart';
+import 'package:flutter_complete_guide/question.dart';
 //we are importing built in package from flutter
 //material.dart is a package of built in theme/buttons
 
@@ -15,37 +16,39 @@ class MyApp extends StatefulWidget {
     return MyAppState();
   }
 }
+
 class MyAppState extends State<MyApp> {
-  var _questionIndex =0 ;
+  var _questionIndex = 0;
 
   void _amswerQuestion() {
-    setState((){
-    _questionIndex = _questionIndex + 1;
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
 
-    }); 
- 
     print(_questionIndex);
   }
+
   @override
   //We make a class MyApp which inherit another class which is provided by material.dart
   Widget build(BuildContext context) {
     //build is a method here with type:Widget and context is a argument ,This argument will call by flutter
-    var question = [ 'What is You Name',
-    'What is youor favourirte color?'
-    ];
+    var question = ['What is You Name', 'What is youor favourirte color?'];
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('My First App')
-        ),
+        appBar: AppBar(title: Text('My First App')),
         body: Column(
           children: <Widget>[
-            Text(question[_questionIndex]),
-            RaisedButton(child: Text('Answer 1'), onPressed: _amswerQuestion), //BUTTON
+            Question(question[_questionIndex]),
+            RaisedButton(
+                child: Text('Answer 1'), onPressed: _amswerQuestion), //BUTTON
             Text('Question 2 '),
-            RaisedButton(child: Text('Answer 2'), onPressed: () => print('Answer 2 chosen'),), //BUTTON //Here ()= is an anonymous function
-             Text('Question 3 '),
-            RaisedButton(child: Text('Answer 3'), onPressed: _amswerQuestion), //BUTTON
+            RaisedButton(
+              child: Text('Answer 2'),
+              onPressed: () => print('Answer 2 chosen'),
+            ), //BUTTON //Here ()= is an anonymous function
+            Text('Question 3 '),
+            RaisedButton(
+                child: Text('Answer 3'), onPressed: _amswerQuestion), //BUTTON
           ],
         ),
       ),
