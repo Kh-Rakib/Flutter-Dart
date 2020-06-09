@@ -1,4 +1,5 @@
 import 'Package:flutter/material.dart';
+import 'package:flutter_complete_guide/answer.dart';
 import 'package:flutter_complete_guide/question.dart';
 //we are importing built in package from flutter
 //material.dart is a package of built in theme/buttons
@@ -39,16 +40,9 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: <Widget>[
             Question(question[_questionIndex]),
-            RaisedButton(
-                child: Text('Answer 1'), onPressed: _amswerQuestion), //BUTTON
-            Text('Question 2 '),
-            RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: () => print('Answer 2 chosen'),
-            ), //BUTTON //Here ()= is an anonymous function
-            Text('Question 3 '),
-            RaisedButton(
-                child: Text('Answer 3'), onPressed: _amswerQuestion), //BUTTON
+            Answer(_amswerQuestion),
+            Answer(_amswerQuestion),
+            Answer(_amswerQuestion),
           ],
         ),
       ),
