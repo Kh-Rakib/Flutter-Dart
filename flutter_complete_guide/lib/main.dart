@@ -1,53 +1,65 @@
-import 'Package:flutter/material.dart';
-import 'package:flutter_complete_guide/answer.dart';
-import 'package:flutter_complete_guide/question.dart';
-//we are importing built in package from flutter
-//material.dart is a package of built in theme/buttons
+import 'package:flutter/material.dart';
 
-void main() {
-  //main is a special kind of function when the app starts it first execute main function
-  runApp(MyApp());
-  //runApp is function which provided by material.dart
-}
+import './question.dart';
+import './answer.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
-  void _amswerQuestion() {
+  void _answerQuestion() {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-
     print(_questionIndex);
   }
 
   @override
-  //We make a class MyApp which inherit another class which is provided by material.dart
   Widget build(BuildContext context) {
-    //build is a method here with type:Widget and context is a argument ,This argument will call by flutter
-    var question = ['What is You Name', 'What is youor favourirte color?'];
+    var questions = [
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answers': ['Black', 'Red', 'Green', 'White'],
+      },
+      {
+        'questionText': 'What\'s your favorite animal?',
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      },
+      {
+        'questionText': 'Who\'s your favorite instructor?',
+        'answers': ['Max', 'Max', 'Max', 'Max'],
+      },
+    ];
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('My First App')),
+        appBar: AppBar(
+          title: Text('My First App'),
+        ),
         body: Column(
-          children: <Widget>[
-            Question(question[_questionIndex]),
-            Answer(_amswerQuestion),
-            Answer(_amswerQuestion),
-            Answer(_amswerQuestion),
+          children: [
+            Question(
+              questions[_questionIndex]['questionText'],
+            ),
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
     );
-    //buuild method should return something
-    //MaterialApp is a class which takes a named argument
   }
 }
