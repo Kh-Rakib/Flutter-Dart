@@ -1,56 +1,29 @@
-import './transaction.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(Myapp());
+}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter App',
-      home: MyHomePage(),
+class Myapp extends StatelessWidget { //Myapp here is a class which inherit Statelesswidget
+  @override 
+  Widget build (BuildContext context) {  //build is a method (Function inside of a class is Method)
+    return MaterialApp(                  // context is special is a argument of type buildcontext
+      title: 'Flutter App',              // Context will call by flutter to do heavy lifting behind the scene
+      home: MyHomePage(),                
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [  // Here <Transactions> is ised as type of the list 
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
   @override
-  Widget build(BuildContext context) {
+  Widget build (BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+      title: Text('Flutter App'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            child: Card(
-              color: Colors.blue,
-              child: Text('CHART!'),
-              elevation: 5, // Shadow under the card aka Hover Effect
-            ),
-          ),
-          Card(
-            child: Text('LIST OF TX'),
-          ),
-        ],
-      ),
-    );
+      body: Center(
+            child: Text('Widget Playground!'),
+              ),
+            );
   }
 }
