@@ -26,12 +26,12 @@ class _JsonDataState extends State<JsonData> {
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(myData[index]['date']),
-                    Text(myData[index]['high']),
-                    Text(myData[index]['low']),
-                    Text(myData[index]['open']),
-                    Text(myData[index]['close']),
-                    Text(myData[index]['volume']),
+                    Text("Date:"+myData[index]['date']),
+                    Text("High:"+myData[index]['high']),
+                    Text("Low:"+myData[index]['low']),
+                    Text("Open:"+myData[index]['open']),
+                    Text("Close:"+myData[index]['close']),
+                    Text("Volume:"+myData[index]['volume']),
                   ],
                 ),
                 isThreeLine: true,
