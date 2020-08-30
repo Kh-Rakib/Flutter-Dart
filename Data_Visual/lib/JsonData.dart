@@ -14,38 +14,62 @@ class _JsonDataState extends State<JsonData> {
         title: Text('Home Page Data Visualization'),
       ),
       body: Center(
-        child: FutureBuilder(builder: (context, snapshot){
-          var myData=json.decode(snapshot.data.toString());
-          return ListView.builder(       
-                
-            itemBuilder: (BuildContext context, int index){
-              return Card (child: 
-              ListTile (
-                leading: CircleAvatar(child: Text(myData[index]['trade_code'][0])),
-                title: Text(myData[index]['trade_code']),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text("Date:"+myData[index]['date']),
-                    Text("High:"+myData[index]['high']),
-                    Text("Low:"+myData[index]['low']),
-                    Text("Open:"+myData[index]['open']),
-                    Text("Close:"+myData[index]['close']),
-                    Text("Volume:"+myData[index]['volume']),
-                  ],
-                ),
-                isThreeLine: true,
-              ),
-              elevation: 3,
-              );
-            },
-            itemCount: myData.length,
-          );
-        }, future: DefaultAssetBundle.of(context).loadString("assets/stock_market_data.json"),
-        
+        child: FutureBuilder(
+          builder: (context, snapshot) {
+            var myData = json.decode(snapshot.data.toString());
+            return ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        child: Text(myData[index]['trade_code'][0])),
+                    title: Text(myData[index]['trade_code']),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Text(
+                          "\nHigh:" + myData[index]['high'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Low:" + myData[index]['low'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Open:" + myData[index]['open'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text("Close:" + myData[index]['close'],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                        ),
+                        Text("Volume:" + myData[index]['volume'],
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "\nDate:" + myData[index]['date'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                          
+                        ),
+                      ],
+                    ),
+                    isThreeLine: true,
+                  ),
+                  elevation: 3,
+                );
+              },
+              itemCount: myData.length,
+            );
+          },
+          future: DefaultAssetBundle.of(context)
+              .loadString("assets/stock_market_data.json"),
         ),
       ),
-      
     );
   }
 }
