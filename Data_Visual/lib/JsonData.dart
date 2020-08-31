@@ -15,8 +15,10 @@ class _JsonDataState extends State<JsonData> {
       ),
       body: Center(
         child: FutureBuilder(
+          future: DefaultAssetBundle.of(context)
+              .loadString('assets/stock_market_data.json'),
           builder: (context, snapshot) {
-            var myData = json.decode(snapshot.data.toString());
+            var myData = jsonDecode(snapshot.data.toString());
             return ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 return Card(
@@ -42,32 +44,30 @@ class _JsonDataState extends State<JsonData> {
                           style: TextStyle(fontWeight: FontWeight.bold),
                           textAlign: TextAlign.left,
                         ),
-                        Text("Close:" + myData[index]['close'],
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left,
+                        Text(
+                          "Close:" + myData[index]['close'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
                         ),
-                        Text("Volume:" + myData[index]['volume'],
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.left,
+                        Text(
+                          "Volume:" + myData[index]['volume'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left,
                         ),
                         Text(
                           "\nDate:" + myData[index]['date'],
                           style: TextStyle(fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
-                          
                         ),
                       ],
                     ),
-                    isThreeLine: true,
                   ),
                   elevation: 3,
                 );
               },
-              itemCount: myData.length,
+              itemCount: myData == null ? 0: myData.length,
             );
           },
-          future: DefaultAssetBundle.of(context)
-              .loadString("assets/stock_market_data.json"),
         ),
       ),
     );
