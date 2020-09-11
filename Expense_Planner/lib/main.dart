@@ -15,15 +15,19 @@ class Myapp extends StatelessWidget {
     //build is a method (Function inside of a class is Method)
     return MaterialApp(
       // context is a argument of special type buildcontext
-      title:
-          'Flutter App', // Context will call by flutter to do heavy lifting behind the scene
+      title: 'Expense Planner',
+      // Context will call by flutter to do heavy lifting behind the scene
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+        
+      ),
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -55,20 +59,22 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _userTransactions.add(newTx);
     });
-
   }
 
-  void _startAddTransaction (BuildContext ctx) {
-    showModalBottomSheet(context: ctx, builder: (_) {
-      return NewTransaction(_addNewTransaction);
-    },);
+  void _startAddTransaction(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return NewTransaction(_addNewTransaction);
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Expense Planner'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
